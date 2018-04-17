@@ -1,0 +1,388 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "Activity",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "lunch",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "createAccount",
+        "samples": [
+          "add account",
+          "create account",
+          "add account for {name}",
+          "add an account",
+          "create an account",
+          "create an account for {name}"
+        ],
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.US_FIRST_NAME",
+            "samples": [
+              "{name}"
+            ]
+          },
+          {
+            "name": "mobileFirstThree",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{mobileFirstThree}"
+            ]
+          },
+          {
+            "name": "mobileSecondThree",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{mobileSecondThree}"
+            ]
+          },
+          {
+            "name": "mobileLastFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{mobileLastFour}"
+            ]
+          },
+          {
+            "name": "panFirstFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{panFirstFour}"
+            ]
+          },
+          {
+            "name": "panSecondFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{panSecondFour}"
+            ]
+          },
+          {
+            "name": "panThirdFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{panThirdFour}"
+            ]
+          },
+          {
+            "name": "panLastFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "samples": [
+              "{panLastFour}"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "HelloWorld",
+        "samples": [
+          "hello world",
+          "my name is {name}"
+        ],
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.US_FIRST_NAME"
+          }
+        ]
+      },
+      {
+        "name": "transferMoney",
+        "samples": [
+          "transfer {amount} dollars from {fromName} to {toName}",
+          "move {amount} dollars from {fromName} to {toName}",
+          "give {amount} dollars from {fromName} to {toName}",
+          "send some money",
+          "transfer money",
+          "give money",
+          "transfer {amount} dollars",
+          "give {toName} {amount} dollars",
+          "give {toName} {amount} dollars for {activity}",
+          "give {amount} dollars to {toName} from {fromName} to use during {activity}",
+          "give {amount} dollars to {toName} from {fromName} to use for {activity}",
+          "transfer {amount} dollars to {toName}"
+        ],
+        "slots": [
+          {
+            "name": "amount",
+            "type": "AMAZON.NUMBER",
+            "samples": [
+              "{amount}"
+            ]
+          },
+          {
+            "name": "fromName",
+            "type": "AMAZON.US_FIRST_NAME",
+            "samples": [
+              "{fromName}"
+            ]
+          },
+          {
+            "name": "toName",
+            "type": "AMAZON.US_FIRST_NAME",
+            "samples": [
+              "{toName}"
+            ]
+          },
+          {
+            "name": "activity",
+            "type": "Activity"
+          }
+        ]
+      }
+    ],
+    "invocationName": "mastercard send"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-name",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "name?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-mobileFirstThree",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What's the first three digits of your mobile number?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-mobileSecondThree",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "next three"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-mobileLastFour",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "last four"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-panFirstFour",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "what's the first four numbers of the pan?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-panSecondFour",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "next four numbers?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-panThirdFour",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "next four?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-createAccount.IntentSlot-panLastFour",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "last four numbers"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-transferMoney.IntentSlot-amount",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "amount?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-transferMoney.IntentSlot-fromName",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "transfer from?"
+        },
+        {
+          "type": "PlainText",
+          "value": "who to transfer from?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-transferMoney.IntentSlot-toName",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Who to transfer to?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "createAccount",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-name"
+            }
+          },
+          {
+            "name": "mobileFirstThree",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-mobileFirstThree"
+            }
+          },
+          {
+            "name": "mobileSecondThree",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-mobileSecondThree"
+            }
+          },
+          {
+            "name": "mobileLastFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-mobileLastFour"
+            }
+          },
+          {
+            "name": "panFirstFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-panFirstFour"
+            }
+          },
+          {
+            "name": "panSecondFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-panSecondFour"
+            }
+          },
+          {
+            "name": "panThirdFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-panThirdFour"
+            }
+          },
+          {
+            "name": "panLastFour",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-createAccount.IntentSlot-panLastFour"
+            }
+          }
+        ]
+      },
+      {
+        "name": "transferMoney",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "amount",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-transferMoney.IntentSlot-amount"
+            }
+          },
+          {
+            "name": "fromName",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-transferMoney.IntentSlot-fromName"
+            }
+          },
+          {
+            "name": "toName",
+            "type": "AMAZON.US_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-transferMoney.IntentSlot-toName"
+            }
+          },
+          {
+            "name": "activity",
+            "type": "Activity",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
